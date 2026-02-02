@@ -133,7 +133,7 @@ function Install-Git {
     if (!(Get-Command winget -ErrorAction SilentlyContinue)) {
         Write-Error "  winget not found. Please install Git manually from https://git-scm.com"
         Write-Host "  After installing, run this script again."
-        exit 1
+        throw "winget not found. Cannot install Git."
     }
 
     try {
@@ -167,7 +167,7 @@ function Install-Git {
 
     Write-Warning "  Git installation may require a terminal restart."
     Write-Host "  Please close this terminal, open a new one, and run the script again."
-    exit 1
+    throw "Git installation requires a terminal restart."
 }
 
 function Install-Node {
@@ -177,7 +177,7 @@ function Install-Node {
     if (!(Get-Command winget -ErrorAction SilentlyContinue)) {
         Write-Error "winget not found. Please install Node.js manually from https://nodejs.org"
         Write-Host "  After installing, run this script again."
-        exit 1
+        throw "winget not found. Cannot install Node.js."
     }
 
     try {
@@ -212,7 +212,7 @@ function Install-Node {
 
     Write-Warning "  Node.js installation may require a terminal restart."
     Write-Host "  Please close this terminal, open a new one, and run the script again."
-    exit 1
+    throw "Node.js installation requires a terminal restart."
 }
 
 function Register-MoltbookAgent {
@@ -267,6 +267,8 @@ function Post-ToMoltbook {
 # Main Installation
 # ============================================
 
+try {
+
 Clear-Host
 Write-Host @"
 
@@ -317,7 +319,7 @@ if (Test-NpmInstalled) {
     Write-Success "  npm $npmVersion found"
 } else {
     Write-Error "  npm not found. Please restart your terminal and try again."
-    exit 1
+    throw "npm not found."
 }
 
 # Check Git (required for some npm packages)
@@ -384,7 +386,7 @@ try {
         Write-Host "  1. Try running PowerShell as Administrator"
         Write-Host "  2. Check your internet connection"
         Write-Host "  3. Run manually: npm install -g openclaw@latest"
-        exit 1
+        throw "npm install failed (exit code: $npmExitCode)"
     }
 
     # Refresh PATH and verify openclaw is executable
@@ -406,7 +408,7 @@ try {
             Write-Error "  OpenClaw installed but not found in PATH"
             Write-Host "  npm global bin: $npmGlobalBin"
             Write-Host "  Please restart your terminal and try running 'openclaw'"
-            exit 1
+            throw "OpenClaw not found in PATH."
         }
     }
 }
@@ -600,3 +602,12 @@ Write-Host ""
 
 # Launch openclaw onboard
 openclaw onboard
+
+} catch {
+    Write-Host ""
+    Write-Host "  ERROR: $_" -ForegroundColor Red
+    Write-Host "  $($_.ScriptStackTrace)" -ForegroundColor DarkGray
+} finally {
+    Write-Host ""
+    Read-Host "  Press Enter to close"
+}
