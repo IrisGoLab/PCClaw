@@ -19,6 +19,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+try {
+
 Write-Host @"
 
   ====================================================
@@ -64,6 +66,7 @@ if ([string]::IsNullOrWhiteSpace($Provider)) {
         $Provider = $providers[$choice].name
         $providerUrl = $providers[$choice].url
     } else {
+        $choice = "1"
         $Provider = "anthropic"
         $providerUrl = $providers["1"].url
     }
@@ -85,7 +88,7 @@ if ([string]::IsNullOrWhiteSpace($ApiKey)) {
 
     if ([string]::IsNullOrWhiteSpace($ApiKey)) {
         Write-Host "`n  Error: API key is required" -ForegroundColor Red
-        exit 1
+        throw "API key is required."
     }
 }
 
@@ -152,6 +155,15 @@ try {
         Write-Host ""
         Write-Host "  Error: Could not find installer" -ForegroundColor Red
         Write-Host "  Please download manually from: https://openclaw.irisgo.xyz"
-        exit 1
+        throw "Could not find installer."
     }
+}
+
+} catch {
+    Write-Host ""
+    Write-Host "  ERROR: $_" -ForegroundColor Red
+    Write-Host "  $($_.ScriptStackTrace)" -ForegroundColor DarkGray
+} finally {
+    Write-Host ""
+    Read-Host "  Press Enter to close"
 }
