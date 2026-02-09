@@ -20,7 +20,7 @@ All notable changes to PCClaw will be documented in this file.
 ## [1.0.1] - 2026-02-06
 
 ### Fixed
-- PowerShell window no longer closes instantly on error or completion ([PR #1](https://github.com/IrisGoLab/openclaw-installer/pull/1) by @TonySincerely)
+- PowerShell window no longer closes instantly on error or completion ([PR #1](https://github.com/IrisGoLab/pcclaw/pull/1) by @TonySincerely)
 - Synced `web/i.ps1` with `quick-install.ps1` after PR merge
 
 ## [1.0.0] - 2026-02-04

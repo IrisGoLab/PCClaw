@@ -124,7 +124,7 @@ Write-Host "  Provider: $Provider" -ForegroundColor Gray
 Write-Host "  Downloading installer..." -ForegroundColor Gray
 
 # Download and execute the full installer
-$installerUrl = "https://raw.githubusercontent.com/IrisGoLab/openclaw-installer/main/scripts/install.ps1"
+$installerUrl = "https://raw.githubusercontent.com/IrisGoLab/pcclaw/main/scripts/install.ps1"
 
 # Build parameters
 $installParams = @{
