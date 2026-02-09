@@ -2,6 +2,14 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.3.0] - 2026-02-09
+
+### Added
+- `win-ui-auto` skill — Windows UI automation: inspect UI element trees, click, double-click, right-click, type text, send hotkeys, focus/move/resize/minimize/maximize/close windows, launch/quit apps, scroll. The Windows counterpart to Peekaboo (macOS). Uses .NET UI Automation + Win32 APIs with zero external dependencies.
+
+### Changed
+- Bumped version to 1.3.0
+
 ## [1.2.0] - 2026-02-09
 
 ### Added
