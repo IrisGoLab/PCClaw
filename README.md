@@ -110,6 +110,26 @@ Remove-Item -Recurse "$env:USERPROFILE\.openclaw"
 Remove-Item -Recurse "$env:USERPROFILE\.config\moltbook"
 ```
 
+## Windows Skills
+
+This repo also includes community-contributed OpenClaw skills for Windows:
+
+| Skill | Description |
+|-------|-------------|
+| `win-notify` | Send native Windows toast notifications (no dependencies) |
+| `winget` | Search, install, and manage Windows packages via winget |
+
+### Install Skills
+
+Copy to your OpenClaw skills directory:
+
+```powershell
+# Copy skills to your local OpenClaw
+Copy-Item -Recurse .\skills\* "$env:USERPROFILE\.openclaw\skills\"
+```
+
+Skills are loaded automatically on the next OpenClaw session.
+
 ## Links
 
 - [OpenClaw Official](https://openclaw.ai)
