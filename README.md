@@ -1,46 +1,56 @@
 # PCClaw — OpenClaw for Windows
 
-> The missing Windows experience for [OpenClaw](https://openclaw.ai). Installer + Skills pack.
+<p align="center">
+  <img src="web/pcclaw-logo.png" alt="PCClaw" width="160">
+</p>
 
-**v1.5.0** | Powered by [IrisGo.AI](https://irisgo.ai)
+<p align="center">
+  <strong>OpenClaw Skills are macOS-only. Until now.</strong><br>
+  7 Windows-native skills + 2 cross-platform skills + one-command installer.
+</p>
 
----
-
-## What is PCClaw?
-
-[OpenClaw](https://openclaw.ai) is a great AI agent framework, but its skill ecosystem is heavily macOS-focused (Apple Notes, Reminders, Peekaboo, Things, iMessage...). **PCClaw** fills the gap for Windows users:
-
-1. **One-command installer** — Get OpenClaw + Moltbook running on Windows in 2 minutes
-2. **Windows-native skills** — Toast notifications, winget package management
-3. **Cross-platform task management** — Microsoft To Do + Google Tasks (the mobile task app duo)
-
-```
-OpenClaw Skills Ecosystem:
-  macOS:   apple-notes, apple-reminders, peekaboo, things-mac, imsg, bear-notes
-  Windows: win-notify, winget, win-screenshot, win-clipboard,       ← PCClaw
-           win-ui-auto, win-ocr, win-whisper                       ← PCClaw
-  Cross:   ms-todo, google-tasks                                   ← PCClaw
-```
+<p align="center">
+  <a href="https://openclaw.irisgo.xyz">Website</a> &bull;
+  <a href="https://join.slack.com/t/irisgo-community/shared_invite/zt-3i3qm7sds-A4WIKXk4rQHgG1FUg1i0Og">Community Slack</a> &bull;
+  <a href="https://irisgo.ai">IrisGo.AI</a>
+</p>
 
 ---
 
-## Quick Start (Windows)
+**v1.5.0** | A community project by [IrisGo.AI](https://irisgo.ai)
 
-### Option 1: Interactive (Recommended)
+## The Skills Gap
+
+[OpenClaw](https://openclaw.ai) has a rich skill ecosystem — but it was built for macOS. Windows users got left behind.
+
+PCClaw fills the gap:
+
+```
+                    macOS (built-in)          Windows (PCClaw)
+  ─────────────────────────────────────────────────────────────
+  Notes             apple-notes, bear-notes   ms-todo, google-tasks
+  Notifications     osascript                 win-notify (WinRT)
+  Screen Capture    peekaboo                  win-screenshot
+  Clipboard         pbcopy / pbpaste          win-clipboard
+  Packages          homebrew                  winget
+  OCR               —                         win-ocr (built-in)
+  UI Automation     —                         win-ui-auto (.NET)
+  Speech-to-Text    —                         win-whisper (GPU/NPU)
+  Messages          imsg                      — (coming soon)
+```
+
+## Quick Start
 
 ```powershell
 irm openclaw.irisgo.xyz/i | iex
 ```
 
-This will prompt you to:
-1. Select your LLM provider
-2. Enter your API key
-3. Choose an agent name
+That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](https://moltbook.com) registration.
 
-### Option 2: One-liner with Parameters
+### One-liner with Parameters
 
 ```powershell
-# Anthropic
+# Anthropic (default)
 .\install.ps1 -ApiKey "sk-ant-your-key" -AgentName "my_agent"
 
 # OpenAI
@@ -55,47 +65,46 @@ This will prompt you to:
 
 ## Supported Providers
 
-| Provider | Description |
-|----------|-------------|
-| Anthropic | Claude models (default) |
-| OpenAI | GPT models |
-| Google Gemini | Gemini models |
-| GLM | Zhipu AI models |
+| Provider | Models |
+|----------|--------|
+| Anthropic | Claude (default) |
+| OpenAI | GPT |
+| Google Gemini | Gemini |
+| GLM | Zhipu AI |
 | OpenAI Compatible | Ollama, LM Studio, vLLM, etc. |
+
+**BYOK** — Your API key stays on your machine. We never collect or transmit it.
 
 ---
 
-## Skills Pack
+## Skills
 
-PCClaw includes community-contributed OpenClaw skills that work out of the box on Windows.
+### Windows-Native (7)
 
-### Windows-Only Skills
-
-| Skill | Description | Dependencies |
+| Skill | What it does | Dependencies |
 |-------|-------------|--------------|
-| [`win-notify`](skills/win-notify/SKILL.md) | Native Windows toast notifications via WinRT API | None (built-in PowerShell) |
-| [`winget`](skills/winget/SKILL.md) | Windows Package Manager — search, install, upgrade software | winget (pre-installed on Win 10/11) |
-| [`win-screenshot`](skills/win-screenshot/SKILL.md) | Screen capture (full, region, or window) + window listing | None (built-in .NET) |
-| [`win-clipboard`](skills/win-clipboard/SKILL.md) | Clipboard read/write — text, images, file lists | None (built-in .NET) |
-| [`win-ui-auto`](skills/win-ui-auto/SKILL.md) | UI automation — inspect elements, click, type, manage windows | None (built-in .NET + Win32) |
-| [`win-ocr`](skills/win-ocr/SKILL.md) | Extract text from images/screenshots — multilingual, offline | None (built-in Windows OCR) |
-| [`win-whisper`](skills/win-whisper/SKILL.md) | Speech-to-text using Whisper — local, GPU/NPU accelerated | whisper.cpp (one-time download) |
+| [`win-notify`](skills/win-notify/SKILL.md) | Toast notifications via WinRT API | None (built-in) |
+| [`winget`](skills/winget/SKILL.md) | Search, install, upgrade software | winget (pre-installed) |
+| [`win-screenshot`](skills/win-screenshot/SKILL.md) | Full screen, region, or window capture | None (built-in .NET) |
+| [`win-clipboard`](skills/win-clipboard/SKILL.md) | Read/write text, images, file lists | None (built-in .NET) |
+| [`win-ui-auto`](skills/win-ui-auto/SKILL.md) | Inspect, click, type, manage windows | None (built-in .NET + Win32) |
+| [`win-ocr`](skills/win-ocr/SKILL.md) | Extract text from images — multilingual, offline | None (built-in Windows OCR) |
+| [`win-whisper`](skills/win-whisper/SKILL.md) | Speech-to-text — local, GPU/NPU accelerated | whisper.cpp (one-time download) |
 
-### Cross-Platform Skills (Task Management)
+### Cross-Platform (2)
 
-| Skill | Description | Counterpart |
-|-------|-------------|-------------|
+| Skill | What it does | macOS counterpart |
+|-------|-------------|-------------------|
 | [`ms-todo`](skills/ms-todo/SKILL.md) | Microsoft To Do via Graph API | `apple-reminders` |
-| [`google-tasks`](skills/google-tasks/SKILL.md) | Google Tasks via `gog` CLI or REST API | `apple-reminders` |
+| [`google-tasks`](skills/google-tasks/SKILL.md) | Google Tasks via REST API | `apple-reminders` |
 
 ### Install Skills
 
 ```powershell
-# Copy all PCClaw skills to your OpenClaw
 Copy-Item -Recurse .\skills\* "$env:USERPROFILE\.openclaw\skills\"
 ```
 
-Skills are loaded automatically on the next OpenClaw session.
+Skills load automatically on the next OpenClaw session.
 
 ---
 
@@ -104,23 +113,14 @@ Skills are loaded automatically on the next OpenClaw session.
 1. **Checks prerequisites** — Installs Node.js and Git if needed (via winget)
 2. **Installs OpenClaw** — `npm install -g openclaw@latest`
 3. **Configures your LLM** — Sets up API key for your chosen provider
-4. **Registers on Moltbook** — Creates your AI agent profile
-5. **Posts first message** — Your agent introduces itself!
-6. **Launches onboard wizard** — Gets you started immediately
+4. **Registers on Moltbook** — Creates your AI agent profile and posts first message
+5. **Launches onboard wizard** — Gets you started immediately
 
 ## Requirements
 
 - Windows 10/11 (PowerShell 5.1+)
 - Internet connection
-- LLM API key (any supported provider)
-
-## BYOK — Bring Your Own Key
-
-This installer does NOT store or transmit your API key to any server other than:
-- OpenClaw (local configuration)
-- Your chosen LLM provider
-
-Your API key stays on your machine.
+- LLM API key (any supported provider) — or a local LLM
 
 ---
 
@@ -133,18 +133,13 @@ Your API key stays on your machine.
 
 ## Troubleshooting
 
-### "Node.js not found after installation"
-Close your terminal and open a new one, then run the installer again.
+**"Node.js not found after installation"** — Close and reopen your terminal, then run the installer again.
 
-### "winget not available"
-Install Node.js manually from https://nodejs.org, then run the installer again.
+**"winget not available"** — Install Node.js manually from https://nodejs.org, then run the installer again.
 
-### "Moltbook registration failed"
-- Your agent name might be taken — try a different name
-- Moltbook API might be temporarily down — try again later
+**"Moltbook registration failed"** — Your agent name might be taken, or the API might be temporarily down. Try a different name.
 
-### "OpenClaw won't start"
-Make sure your API key is valid and has sufficient credits.
+**"OpenClaw won't start"** — Make sure your API key is valid and has sufficient credits.
 
 ## Files Created
 
@@ -172,7 +167,6 @@ Remove-Item -Recurse "$env:USERPROFILE\.config\moltbook"
 
 We welcome new Windows skills! See [CHANGELOG.md](CHANGELOG.md) for version history.
 
-To create a new skill:
 1. Create a folder under `skills/<skill-name>/`
 2. Add a `SKILL.md` following [OpenClaw's skill format](https://openclaw.ai)
 3. Test locally by copying to `~/.openclaw/skills/`
@@ -180,15 +174,16 @@ To create a new skill:
 
 ## Links
 
+- [PCClaw Website](https://openclaw.irisgo.xyz)
 - [OpenClaw Official](https://openclaw.ai)
 - [Moltbook](https://moltbook.com)
 - [IrisGo.AI](https://irisgo.ai)
-- [IrisGo Community Slack](https://join.slack.com/t/irisgo-community/shared_invite/zt-3i3qm7sds-A4WIKXk4rQHgG1FUg1i0Og)
+- [Community Slack](https://join.slack.com/t/irisgo-community/shared_invite/zt-3i3qm7sds-A4WIKXk4rQHgG1FUg1i0Og)
 
 ## License
 
-MIT License — Use at your own risk.
+MIT
 
 ---
 
-*PCClaw is a community project by [IrisGo.AI](https://irisgo.ai) and is not officially affiliated with OpenClaw.*
+*PCClaw is a community project by [IrisGo.AI](https://irisgo.ai). Not officially affiliated with OpenClaw.*
