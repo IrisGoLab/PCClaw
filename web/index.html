@@ -21,6 +21,9 @@
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦞</text></svg>">
 
+    <!-- OG Image -->
+    <meta property="og:image" content="https://openclaw.irisgo.xyz/pcclaw-logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -141,10 +144,10 @@
     <header class="gradient-bg text-white">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <span class="text-2xl">🦞</span>
+                <img src="pcclaw-logo.png" alt="PCClaw" class="w-8 h-8 rounded-lg">
                 <span class="font-bold text-lg">PCClaw</span>
-                <span class="text-foam/40 text-sm">|</span>
-                <span class="text-foam/70 text-sm">OpenClaw for Windows</span>
+                <span class="text-foam/40 text-sm hidden md:inline">|</span>
+                <span class="text-foam/70 text-sm hidden md:inline">OpenClaw for Windows</span>
             </div>
             <div class="flex items-center gap-3">
                 <a href="https://github.com/IrisGoLab/PCClaw"
@@ -162,6 +165,8 @@
         </nav>
 
         <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+            <img src="pcclaw-logo.png" alt="PCClaw - OpenClaw for Windows" class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-2xl shadow-2xl">
+
             <div class="inline-block bg-lobster/20 text-lobster-100 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-lobster/30">
                 v1.5.0 — 9 Skills, 5+ Providers
             </div>
@@ -502,9 +507,10 @@
                     </div>
                     <div class="flex-shrink-0 text-center">
                         <a href="https://irisgo.ai" target="_blank" class="block">
-                            <div class="w-24 h-24 bg-ocean rounded-2xl flex items-center justify-center text-white text-sm font-bold mb-3 p-2 leading-tight">
-                                IrisGo<br><span class="text-foam/80 font-normal text-xs">AI for PC</span>
+                            <div class="w-32 h-20 bg-ocean rounded-2xl flex items-center justify-center p-4 mb-3">
+                                <img src="irisgo-logo.svg" alt="IrisGo.AI" class="h-8">
                             </div>
+                            <span class="text-xs text-gray-400">irisgo.ai</span>
                         </a>
                     </div>
                 </div>
@@ -590,11 +596,13 @@
     <footer class="bg-gray-900 text-white py-8 px-4">
         <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
-                <span class="text-lg">🦞</span>
+                <img src="pcclaw-logo.png" alt="PCClaw" class="w-6 h-6 rounded">
                 <span class="font-semibold text-sm">PCClaw</span>
                 <span class="text-gray-500 text-sm">|</span>
                 <span class="text-gray-400 text-sm">A community project by</span>
-                <a href="https://irisgo.ai" target="_blank" class="text-foam hover:text-white text-sm font-medium transition">IrisGo.AI</a>
+                <a href="https://irisgo.ai" target="_blank" class="hover:opacity-80 transition">
+                    <img src="irisgo-logo.svg" alt="IrisGo.AI" class="h-4 inline-block">
+                </a>
             </div>
             <div class="flex gap-6 text-sm text-gray-400">
                 <a href="https://github.com/IrisGoLab/PCClaw" target="_blank" class="hover:text-white transition">GitHub</a>
