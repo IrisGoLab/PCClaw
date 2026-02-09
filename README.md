@@ -2,7 +2,7 @@
 
 > The missing Windows experience for [OpenClaw](https://openclaw.ai). Installer + Skills pack.
 
-**v1.1.0** | Powered by [IrisGo.AI](https://irisgo.ai)
+**v1.2.0** | Powered by [IrisGo.AI](https://irisgo.ai)
 
 ---
 
@@ -17,8 +17,8 @@
 ```
 OpenClaw Skills Ecosystem:
   macOS:   apple-notes, apple-reminders, peekaboo, things-mac, imsg, bear-notes
-  Windows: win-notify, winget                              ← PCClaw
-  Cross:   ms-todo, google-tasks                           ← PCClaw
+  Windows: win-notify, winget, win-screenshot, win-clipboard       ← PCClaw
+  Cross:   ms-todo, google-tasks                                   ← PCClaw
 ```
 
 ---
@@ -74,6 +74,8 @@ PCClaw includes community-contributed OpenClaw skills that work out of the box o
 |-------|-------------|--------------|
 | [`win-notify`](skills/win-notify/SKILL.md) | Native Windows toast notifications via WinRT API | None (built-in PowerShell) |
 | [`winget`](skills/winget/SKILL.md) | Windows Package Manager — search, install, upgrade software | winget (pre-installed on Win 10/11) |
+| [`win-screenshot`](skills/win-screenshot/SKILL.md) | Screen capture (full, region, or window) + window listing | None (built-in .NET) |
+| [`win-clipboard`](skills/win-clipboard/SKILL.md) | Clipboard read/write — text, images, file lists | None (built-in .NET) |
 
 ### Cross-Platform Skills (Task Management)
 

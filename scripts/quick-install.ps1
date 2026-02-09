@@ -24,7 +24,7 @@ try {
 Write-Host @"
 
   ====================================================
-       PCClaw - OpenClaw for Windows  v1.1.0
+       PCClaw - OpenClaw for Windows  v1.2.0
               Powered by IrisGo.AI
   ====================================================
 

@@ -2,6 +2,15 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.2.0] - 2026-02-09
+
+### Added
+- `win-screenshot` skill — Screen capture (full screen, region, specific window) + window listing via .NET System.Drawing (zero dependencies)
+- `win-clipboard` skill — Clipboard read/write for text, images, and file lists via .NET Windows.Forms (zero dependencies)
+
+### Changed
+- Bumped version to 1.2.0
+
 ## [1.1.0] - 2026-02-09
 
 ### Added
