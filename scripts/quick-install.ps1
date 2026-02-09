@@ -24,7 +24,7 @@ try {
 Write-Host @"
 
   ====================================================
-       OpenClaw + Moltbook Quick Installer
+       PCClaw - OpenClaw for Windows  v1.1.0
               Powered by IrisGo.AI
   ====================================================
 

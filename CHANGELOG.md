@@ -1,0 +1,36 @@
+# Changelog
+
+All notable changes to PCClaw will be documented in this file.
+
+## [1.1.0] - 2026-02-09
+
+### Added
+- **Skills pack** — PCClaw is now an installer + skills bundle
+- `win-notify` skill — Native Windows toast notifications via PowerShell/WinRT (zero dependencies)
+- `winget` skill — Windows Package Manager integration (search, install, upgrade, export)
+- `ms-todo` skill — Microsoft To Do via Graph API (cross-platform counterpart to `apple-reminders`)
+- `google-tasks` skill — Google Tasks via `gog` CLI or REST API (cross-platform)
+- `.gitignore` — Exclude macOS `.DS_Store` files
+- `CHANGELOG.md` — This file
+
+### Changed
+- Rebranded from "OpenClaw Installer" to **PCClaw** — reflecting the expanded scope beyond just installation
+- Updated README with skills documentation and PCClaw identity
+
+## [1.0.1] - 2026-02-06
+
+### Fixed
+- PowerShell window no longer closes instantly on error or completion ([PR #1](https://github.com/IrisGoLab/openclaw-installer/pull/1) by @TonySincerely)
+- Synced `web/i.ps1` with `quick-install.ps1` after PR merge
+
+## [1.0.0] - 2026-02-04
+
+### Added
+- Initial release
+- One-command Windows installer (`irm openclaw.irisgo.xyz/i | iex`)
+- Interactive provider selection (Anthropic, OpenAI, Gemini, GLM, OpenAI-compatible)
+- Automatic prerequisites installation (Node.js, Git via winget)
+- OpenClaw installation and LLM configuration
+- Moltbook agent registration and first post
+- Landing page at `openclaw.irisgo.xyz`
+- BYOK (Bring Your Own Key) — API keys stay local

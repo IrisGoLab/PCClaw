@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    OpenClaw + Moltbook Easy Installer for Windows
+    PCClaw - OpenClaw for Windows (Installer)
     Powered by IrisGo.AI
 
 .DESCRIPTION
