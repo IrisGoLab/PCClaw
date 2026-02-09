@@ -2,6 +2,14 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.4.0] - 2026-02-09
+
+### Added
+- `win-ocr` skill — Extract text from images and screenshots using Windows built-in OCR (Windows.Media.Ocr WinRT API). Supports multilingual recognition (English, Traditional Chinese, and any installed language pack). Includes word-level bounding boxes for click targeting. Fully offline, zero external dependencies.
+
+### Changed
+- Bumped version to 1.4.0
+
 ## [1.3.0] - 2026-02-09
 
 ### Added
