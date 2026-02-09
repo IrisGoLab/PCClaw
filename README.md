@@ -2,7 +2,7 @@
 
 > The missing Windows experience for [OpenClaw](https://openclaw.ai). Installer + Skills pack.
 
-**v1.4.0** | Powered by [IrisGo.AI](https://irisgo.ai)
+**v1.5.0** | Powered by [IrisGo.AI](https://irisgo.ai)
 
 ---
 
@@ -18,7 +18,7 @@
 OpenClaw Skills Ecosystem:
   macOS:   apple-notes, apple-reminders, peekaboo, things-mac, imsg, bear-notes
   Windows: win-notify, winget, win-screenshot, win-clipboard,       ← PCClaw
-           win-ui-auto, win-ocr                                     ← PCClaw
+           win-ui-auto, win-ocr, win-whisper                       ← PCClaw
   Cross:   ms-todo, google-tasks                                   ← PCClaw
 ```
 
@@ -79,6 +79,7 @@ PCClaw includes community-contributed OpenClaw skills that work out of the box o
 | [`win-clipboard`](skills/win-clipboard/SKILL.md) | Clipboard read/write — text, images, file lists | None (built-in .NET) |
 | [`win-ui-auto`](skills/win-ui-auto/SKILL.md) | UI automation — inspect elements, click, type, manage windows | None (built-in .NET + Win32) |
 | [`win-ocr`](skills/win-ocr/SKILL.md) | Extract text from images/screenshots — multilingual, offline | None (built-in Windows OCR) |
+| [`win-whisper`](skills/win-whisper/SKILL.md) | Speech-to-text using Whisper — local, GPU/NPU accelerated | whisper.cpp (one-time download) |
 
 ### Cross-Platform Skills (Task Management)
 

@@ -2,6 +2,14 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.5.0] - 2026-02-09
+
+### Added
+- `win-whisper` skill — Record audio and transcribe speech to text using Whisper, running fully local. Uses whisper.cpp v1.8.3 with OpenBLAS acceleration. Supports WAV/MP3/FLAC/OGG, auto language detection, translation to English, SRT subtitle output, Voice Activity Detection, and real-time streaming transcription. Includes zero-dependency audio recording via Windows Multimedia API (winmm.dll). Optional Intel GPU/NPU acceleration via OpenVINO.
+
+### Changed
+- Bumped version to 1.5.0
+
 ## [1.4.0] - 2026-02-09
 
 ### Added
