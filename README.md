@@ -110,14 +110,23 @@ Remove-Item -Recurse "$env:USERPROFILE\.openclaw"
 Remove-Item -Recurse "$env:USERPROFILE\.config\moltbook"
 ```
 
-## Windows Skills
+## Community Skills
 
-This repo also includes community-contributed OpenClaw skills for Windows:
+Community-contributed OpenClaw skills:
+
+### Windows-Only
 
 | Skill | Description |
 |-------|-------------|
 | `win-notify` | Send native Windows toast notifications (no dependencies) |
 | `winget` | Search, install, and manage Windows packages via winget |
+
+### Cross-Platform (Task Management)
+
+| Skill | Description |
+|-------|-------------|
+| `ms-todo` | Microsoft To Do via Graph API (counterpart to `apple-reminders`) |
+| `google-tasks` | Google Tasks via `gog` CLI or REST API |
 
 ### Install Skills
 
