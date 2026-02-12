@@ -46,7 +46,7 @@ $ProgressPreference = "SilentlyContinue"
 # ============================================
 
 $MOLTBOOK_API = "https://www.moltbook.com/api/v1"
-$VERSION = "1.1.0"
+$VERSION = "1.8.0"
 
 # ============================================
 # Helper Functions
@@ -299,7 +299,7 @@ Write-Host "  Agent: @$AgentName"
 # Step 1: Check Prerequisites
 # ============================================
 
-Write-Step "1/6" "Checking prerequisites..."
+Write-Step "1/7" "Checking prerequisites..."
 
 # Try to add npm to PATH first (if already installed)
 Add-NpmToPath
@@ -335,7 +335,7 @@ if (Test-GitInstalled) {
 # Step 2: Install OpenClaw
 # ============================================
 
-Write-Step "2/6" "Installing OpenClaw..."
+Write-Step "2/7" "Installing OpenClaw..."
 
 # Ensure npm global bin is in PATH
 $npmGlobalBin = "$env:APPDATA\npm"
@@ -417,7 +417,7 @@ try {
 # Step 3: Configure OpenClaw
 # ============================================
 
-Write-Step "3/6" "Configuring OpenClaw..."
+Write-Step "3/7" "Configuring OpenClaw..."
 
 $configDir = "$env:USERPROFILE\.openclaw"
 if (!(Test-Path $configDir)) {
@@ -466,10 +466,46 @@ $config | Out-File "$configDir\config.json" -Encoding UTF8 -Force
 Write-Success "  OpenClaw configured with $Provider"
 
 # ============================================
-# Step 4: Register on Moltbook
+# Step 4: Install PCClaw Skills
 # ============================================
 
-Write-Step "4/6" "Registering on Moltbook..."
+Write-Step "4/7" "Installing PCClaw skills..."
+
+$skillsDir = "$env:USERPROFILE\.openclaw\skills"
+if (!(Test-Path $skillsDir)) {
+    New-Item -ItemType Directory -Path $skillsDir -Force | Out-Null
+}
+
+$skillsUrl = "https://raw.githubusercontent.com/IrisGoLab/pcclaw/main"
+$skillNames = @(
+    "win-notify", "winget", "ms-todo", "google-tasks",
+    "win-screenshot", "win-clipboard", "win-ui-auto", "win-ocr",
+    "win-whisper", "win-tts", "win-files", "sticky-notes",
+    "win-sysinfo", "win-ai-local"
+)
+
+$installed = 0
+foreach ($skill in $skillNames) {
+    try {
+        $dest = "$skillsDir\$skill"
+        if (!(Test-Path $dest)) {
+            New-Item -ItemType Directory -Path $dest -Force | Out-Null
+        }
+        $url = "$skillsUrl/skills/$skill/SKILL.md"
+        Invoke-WebRequest -Uri $url -OutFile "$dest\SKILL.md" -UseBasicParsing
+        $installed++
+    } catch {
+        Write-Host "  Skipped $skill (download failed)" -ForegroundColor Yellow
+    }
+}
+
+Write-Success "  $installed/$($skillNames.Count) PCClaw skills installed"
+
+# ============================================
+# Step 5: Register on Moltbook
+# ============================================
+
+Write-Step "5/7" "Registering on Moltbook..."
 
 $moltbookDir = "$env:USERPROFILE\.config\moltbook"
 if (!(Test-Path $moltbookDir)) {
@@ -526,7 +562,7 @@ if ($null -eq $moltbookCreds) {
 # Step 5: Post First Message
 # ============================================
 
-Write-Step "5/6" "Posting your first message..."
+Write-Step "6/7" "Posting your first message..."
 
 if ($moltbookCreds -and $moltbookCreds.apiKey) {
     $firstPostContent = @"
@@ -566,7 +602,7 @@ Installed via the easy installer at openclaw.irisgo.xyz
 # Step 6: Launch OpenClaw Onboard
 # ============================================
 
-Write-Step "6/6" "Launching OpenClaw..."
+Write-Step "7/7" "Launching OpenClaw..."
 
 Write-Host @"
 
