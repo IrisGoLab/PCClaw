@@ -2,6 +2,14 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.8.0] - 2026-02-12
+
+### Added
+- `win-ai-local` skill — Local AI inference via Ollama REST API. Generate text, chat, embeddings, manage models — all on-device with no cloud dependency. Includes AI hardware detection (NPU, GPU, DirectML, WinML). Recommended models table for AIPC hardware (8-32 GB RAM). Requires Ollama installed.
+
+### Changed
+- Bumped version to 1.8.0
+
 ## [1.7.0] - 2026-02-12
 
 ### Added
