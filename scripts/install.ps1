@@ -46,7 +46,7 @@ $ProgressPreference = "SilentlyContinue"
 # ============================================
 
 $MOLTBOOK_API = "https://www.moltbook.com/api/v1"
-$VERSION = "1.8.0"
+$VERSION = "1.9.0"
 
 # ============================================
 # Helper Functions
@@ -481,7 +481,7 @@ $skillNames = @(
     "win-notify", "winget", "ms-todo", "google-tasks",
     "win-screenshot", "win-clipboard", "win-ui-auto", "win-ocr",
     "win-whisper", "win-tts", "win-files", "sticky-notes",
-    "win-sysinfo", "win-ai-local"
+    "win-sysinfo", "win-ai-local", "win-browser"
 )
 
 $installed = 0

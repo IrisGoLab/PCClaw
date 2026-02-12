@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>OpenClaw Skills are macOS-only. Until now.</strong><br>
-  12 Windows-native skills + 2 cross-platform skills + one-command installer.
+  13 Windows-native skills + 2 cross-platform skills + one-command installer.
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 ---
 
-**v1.8.0** | A community project by [IrisGo.AI](https://irisgo.ai)
+**v1.9.0** | A community project by [IrisGo.AI](https://irisgo.ai)
 
 ## The Skills Gap
 
@@ -41,6 +41,7 @@ PCClaw fills the gap:
   UI Automation     —                         win-ui-auto (.NET)
   Speech-to-Text    —                         win-whisper (GPU/NPU)
   Text-to-Speech    say                       win-tts (SAPI 5)
+  Browser           —                         win-browser (Edge/Chrome)
   Messages          imsg                      — (coming soon)
 ```
 
@@ -84,7 +85,7 @@ That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](
 
 ## Skills
 
-### Windows-Native (12)
+### Windows-Native (13)
 
 | Skill | What it does | Dependencies |
 |-------|-------------|--------------|
@@ -100,6 +101,7 @@ That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](
 | [`sticky-notes`](skills/sticky-notes/SKILL.md) | Read, search, create Windows Sticky Notes | None (built-in winsqlite3) |
 | [`win-sysinfo`](skills/win-sysinfo/SKILL.md) | CPU, RAM, battery, GPU, NPU, network, processes | None (built-in WMI) |
 | [`win-ai-local`](skills/win-ai-local/SKILL.md) | Local LLM inference, model management, AI hardware detection | [Ollama](https://ollama.com) |
+| [`win-browser`](skills/win-browser/SKILL.md) | Bookmarks, history, downloads from Edge/Chrome, open URLs | None (built-in winsqlite3) |
 
 ### Cross-Platform (2)
 

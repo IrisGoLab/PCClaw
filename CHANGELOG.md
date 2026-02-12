@@ -2,6 +2,15 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.9.0] - 2026-02-12
+
+### Added
+- `win-browser` skill — Browser integration for Edge and Chrome. Read and search bookmarks (JSON), browsing history and downloads (SQLite via winsqlite3.dll), get active tab titles, open URLs. Supports multiple browser profiles. Zero external dependencies.
+
+### Changed
+- Bumped version to 1.9.0
+- Installer now deploys 15 skills (added win-browser)
+
 ## [1.8.0] - 2026-02-12
 
 ### Added
