@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>OpenClaw Skills are macOS-only. Until now.</strong><br>
-  10 Windows-native skills + 2 cross-platform skills + one-command installer.
+  11 Windows-native skills + 2 cross-platform skills + one-command installer.
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 ---
 
-**v1.6.0** | A community project by [IrisGo.AI](https://irisgo.ai)
+**v1.7.0** | A community project by [IrisGo.AI](https://irisgo.ai)
 
 ## The Skills Gap
 
@@ -31,6 +31,7 @@ PCClaw fills the gap:
   Notes             apple-notes, bear-notes   sticky-notes
   Tasks             apple-reminders           ms-todo, google-tasks
   File Search       —                         win-files
+  System Info       —                         win-sysinfo (WMI)
   Notifications     osascript                 win-notify (WinRT)
   Screen Capture    peekaboo                  win-screenshot
   Clipboard         pbcopy / pbpaste          win-clipboard
@@ -82,7 +83,7 @@ That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](
 
 ## Skills
 
-### Windows-Native (10)
+### Windows-Native (11)
 
 | Skill | What it does | Dependencies |
 |-------|-------------|--------------|
@@ -96,6 +97,7 @@ That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](
 | [`win-tts`](skills/win-tts/SKILL.md) | Text-to-speech — speak aloud or save to WAV, multilingual | None (built-in .NET) |
 | [`win-files`](skills/win-files/SKILL.md) | Search, browse, manage files and folders, disk info | None (built-in PowerShell) |
 | [`sticky-notes`](skills/sticky-notes/SKILL.md) | Read, search, create Windows Sticky Notes | None (built-in winsqlite3) |
+| [`win-sysinfo`](skills/win-sysinfo/SKILL.md) | CPU, RAM, battery, GPU, NPU, network, processes | None (built-in WMI) |
 
 ### Cross-Platform (2)
 

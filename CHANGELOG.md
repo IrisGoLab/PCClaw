@@ -2,6 +2,14 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.7.0] - 2026-02-12
+
+### Added
+- `win-sysinfo` skill — System diagnostics: CPU, RAM, battery, GPU, NPU, network, running processes, startup programs, OS info. Uses WMI (Get-CimInstance) with zero external dependencies. Includes NPU/AI accelerator detection for AIPC hardware.
+
+### Changed
+- Bumped version to 1.7.0
+
 ## [1.6.0] - 2026-02-12
 
 ### Added
