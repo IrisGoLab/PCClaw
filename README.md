@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>OpenClaw Skills are macOS-only. Until now.</strong><br>
-  13 Windows-native skills + 2 cross-platform skills + one-command installer.
+  14 Windows-native skills + 2 cross-platform skills + one-command installer.
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 ---
 
-**v1.9.0** | A community project by [IrisGo.AI](https://irisgo.ai)
+**v2.0.0** | A community project by [IrisGo.AI](https://irisgo.ai)
 
 ## The Skills Gap
 
@@ -42,6 +42,7 @@ PCClaw fills the gap:
   Speech-to-Text    —                         win-whisper (GPU/NPU)
   Text-to-Speech    say                       win-tts (SAPI 5)
   Browser           —                         win-browser (Edge/Chrome)
+  Scheduler         —                         win-scheduler (Task Scheduler)
   Messages          imsg                      — (coming soon)
 ```
 
@@ -85,7 +86,7 @@ That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](
 
 ## Skills
 
-### Windows-Native (13)
+### Windows-Native (14)
 
 | Skill | What it does | Dependencies |
 |-------|-------------|--------------|
@@ -102,6 +103,7 @@ That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](
 | [`win-sysinfo`](skills/win-sysinfo/SKILL.md) | CPU, RAM, battery, GPU, NPU, network, processes | None (built-in WMI) |
 | [`win-ai-local`](skills/win-ai-local/SKILL.md) | Local LLM inference, model management, AI hardware detection | [Ollama](https://ollama.com) |
 | [`win-browser`](skills/win-browser/SKILL.md) | Bookmarks, history, downloads from Edge/Chrome, open URLs | None (built-in winsqlite3) |
+| [`win-scheduler`](skills/win-scheduler/SKILL.md) | Create, manage, schedule automated tasks and reminders | None (built-in ScheduledTasks) |
 
 ### Cross-Platform (2)
 

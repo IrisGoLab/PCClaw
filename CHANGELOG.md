@@ -2,6 +2,15 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [2.0.0] - 2026-02-12
+
+### Added
+- `win-scheduler` skill — Windows Task Scheduler automation. Create one-time, daily, weekly, logon, and startup tasks. Manage, enable/disable, trigger, export, and delete scheduled tasks. Organizes PCClaw tasks in a dedicated `\PCClaw\` folder. Zero external dependencies (built-in ScheduledTasks PowerShell module).
+
+### Changed
+- Bumped version to 2.0.0 (16 total skills: 14 Windows-native + 2 cross-platform)
+- Installer now deploys 16 skills
+
 ## [1.9.0] - 2026-02-12
 
 ### Added
