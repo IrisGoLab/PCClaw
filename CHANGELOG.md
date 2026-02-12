@@ -2,6 +2,15 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.6.0] - 2026-02-12
+
+### Added
+- `win-files` skill — Search, browse, and manage files and folders. File search by name or content, recent files, folder size breakdown, disk info, create/copy/move/delete operations. Zero external dependencies (built-in PowerShell cmdlets).
+- `sticky-notes` skill — Read, search, create, update, and export Windows Sticky Notes. Accesses the local SQLite database via `winsqlite3.dll` P/Invoke with full UTF-8 support. Zero external dependencies.
+
+### Changed
+- Bumped version to 1.6.0
+
 ## [1.5.1] - 2026-02-12
 
 ### Added
