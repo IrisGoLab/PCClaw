@@ -2,6 +2,14 @@
 
 All notable changes to PCClaw will be documented in this file.
 
+## [1.5.1] - 2026-02-12
+
+### Added
+- `win-tts` skill — Text-to-speech using Windows built-in SAPI 5 speech engine. Speak text aloud or save to WAV. Supports voice selection, speed/volume control, SSML for prosody, and multilingual output (English + Chinese). Zero external dependencies.
+
+### Changed
+- Bumped version to 1.5.1
+
 ## [1.5.0] - 2026-02-09
 
 ### Added

@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>OpenClaw Skills are macOS-only. Until now.</strong><br>
-  7 Windows-native skills + 2 cross-platform skills + one-command installer.
+  8 Windows-native skills + 2 cross-platform skills + one-command installer.
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 ---
 
-**v1.5.0** | A community project by [IrisGo.AI](https://irisgo.ai)
+**v1.5.1** | A community project by [IrisGo.AI](https://irisgo.ai)
 
 ## The Skills Gap
 
@@ -36,6 +36,7 @@ PCClaw fills the gap:
   OCR               —                         win-ocr (built-in)
   UI Automation     —                         win-ui-auto (.NET)
   Speech-to-Text    —                         win-whisper (GPU/NPU)
+  Text-to-Speech    say                       win-tts (SAPI 5)
   Messages          imsg                      — (coming soon)
 ```
 
@@ -90,6 +91,7 @@ That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](
 | [`win-ui-auto`](skills/win-ui-auto/SKILL.md) | Inspect, click, type, manage windows | None (built-in .NET + Win32) |
 | [`win-ocr`](skills/win-ocr/SKILL.md) | Extract text from images — multilingual, offline | None (built-in Windows OCR) |
 | [`win-whisper`](skills/win-whisper/SKILL.md) | Speech-to-text — local, GPU/NPU accelerated | whisper.cpp (one-time download) |
+| [`win-tts`](skills/win-tts/SKILL.md) | Text-to-speech — speak aloud or save to WAV, multilingual | None (built-in .NET) |
 
 ### Cross-Platform (2)
 
