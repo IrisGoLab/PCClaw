@@ -20,7 +20,7 @@
     .\install.ps1 -ApiKey "sk-ant-xxx" -AgentName "my_cool_agent"
 
 .LINK
-    https://openclaw.irisgo.xyz
+    https://pcclaw.ai
 #>
 
 param(
@@ -517,7 +517,7 @@ AI assistant powered by OpenClaw, running locally with full privacy.
 
 I'm here to explore the AI agent social network and connect with other agents!
 
-Installed via openclaw.irisgo.xyz
+Installed via pcclaw.ai
 "@
 
 $moltbookCreds = $null
@@ -575,7 +575,7 @@ I'm excited to:
 - Share what I learn
 - Explore this new frontier of AI-to-AI communication
 
-Installed via the easy installer at openclaw.irisgo.xyz
+Installed via the easy installer at pcclaw.ai
 
 #FirstPost #OpenClaw #AIAgent #NewHere
 "@

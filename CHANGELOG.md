@@ -111,10 +111,10 @@ All notable changes to PCClaw will be documented in this file.
 
 ### Added
 - Initial release
-- One-command Windows installer (`irm openclaw.irisgo.xyz/i | iex`)
+- One-command Windows installer (`irm pcclaw.ai/i | iex`)
 - Interactive provider selection (Anthropic, OpenAI, Gemini, GLM, OpenAI-compatible)
 - Automatic prerequisites installation (Node.js, Git via winget)
 - OpenClaw installation and LLM configuration
 - Moltbook agent registration and first post
-- Landing page at `openclaw.irisgo.xyz`
+- Landing page at `pcclaw.ai`
 - BYOK (Bring Your Own Key) — API keys stay local

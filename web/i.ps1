@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
     Quick installer wrapper - downloads and runs the full installer
-    Usage: iwr -useb "openclaw.irisgo.xyz/install.ps1" | iex
+    Usage: iwr -useb "pcclaw.ai/install.ps1" | iex
 
 .DESCRIPTION
     This is the entry point script that:
@@ -154,7 +154,7 @@ try {
     } else {
         Write-Host ""
         Write-Host "  Error: Could not find installer" -ForegroundColor Red
-        Write-Host "  Please download manually from: https://openclaw.irisgo.xyz"
+        Write-Host "  Please download manually from: https://pcclaw.ai"
         throw "Could not find installer."
     }
 }

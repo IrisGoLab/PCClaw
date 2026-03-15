@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://openclaw.irisgo.xyz">Website</a> &bull;
+  <a href="https://pcclaw.ai">Website</a> &bull;
   <a href="https://join.slack.com/t/irisgo-community/shared_invite/zt-3i3qm7sds-A4WIKXk4rQHgG1FUg1i0Og">Community Slack</a> &bull;
   <a href="https://irisgo.ai">IrisGo.AI</a>
 </p>
@@ -50,7 +50,7 @@ PCClaw fills the gap:
 ## Quick Start
 
 ```powershell
-irm openclaw.irisgo.xyz/i | iex
+irm pcclaw.ai/i | iex
 ```
 
 That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](https://moltbook.com) registration.
@@ -198,7 +198,7 @@ We welcome new Windows skills! See [CHANGELOG.md](CHANGELOG.md) for version hist
 
 ## Links
 
-- [PCClaw Website](https://openclaw.irisgo.xyz)
+- [PCClaw Website](https://pcclaw.ai)
 - [OpenClaw Official](https://openclaw.ai)
 - [Moltbook](https://moltbook.com)
 - [IrisGo.AI](https://irisgo.ai)

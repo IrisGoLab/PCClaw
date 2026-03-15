@@ -37,7 +37,7 @@ OpenClaw's skill ecosystem was built for macOS. PCClaw fills the gap with native
 ## Install
 
 ```powershell
-irm openclaw.irisgo.xyz/i | iex
+irm pcclaw.ai/i | iex
 ```
 
 The installer handles Node.js, Git, OpenClaw, skills, LLM configuration, and Moltbook registration.
@@ -66,7 +66,7 @@ BYOK — your API key stays on your machine.
 
 ## Links
 
-- Website: https://openclaw.irisgo.xyz
+- Website: https://pcclaw.ai
 - GitHub: https://github.com/IrisGoLab/PCClaw
 - Community: https://irisgo.slack.com
 
