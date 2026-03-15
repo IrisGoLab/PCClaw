@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>OpenClaw Skills are macOS-only. Until now.</strong><br>
-  14 Windows-native skills + 2 cross-platform skills + one-command installer.
+  14 Windows-native skills + 2 cross-platform skills + OpenViking persistent memory + one-command installer.
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 ---
 
-**v2.0.0** | A community project by [IrisGo.AI](https://irisgo.ai)
+**v3.0.0** | A community project by [IrisGo.AI](https://irisgo.ai)
 
 ## The Skills Gap
 
@@ -44,6 +44,7 @@ PCClaw fills the gap:
   Browser           —                         win-browser (Edge/Chrome)
   Scheduler         —                         win-scheduler (Task Scheduler)
   Messages          imsg                      — (coming soon)
+  Memory            —                         win-memory (OpenViking)
 ```
 
 ## Quick Start
@@ -104,6 +105,15 @@ That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](
 | [`win-ai-local`](skills/win-ai-local/SKILL.md) | Local LLM inference, model management, AI hardware detection | [Ollama](https://ollama.com) |
 | [`win-browser`](skills/win-browser/SKILL.md) | Bookmarks, history, downloads from Edge/Chrome, open URLs | None (built-in winsqlite3) |
 | [`win-scheduler`](skills/win-scheduler/SKILL.md) | Create, manage, schedule automated tasks and reminders | None (built-in ScheduledTasks) |
+
+### Memory (1) — Powered by OpenViking
+
+| Skill | What it does | Dependencies |
+|-------|-------------|--------------|
+| [`win-memory`](skills/win-memory/SKILL.md) | Persistent agent memory — L0/L1/L2 tiered context, semantic search, session extraction | Python 3.10+, `pip install openviking` |
+
+OpenViking is an open-source context database ([github.com/volcengine/OpenViking](https://github.com/volcengine/OpenViking)).
+Benchmark: **52% task completion** vs 35% baseline, **91% token reduction** vs LanceDB.
 
 ### Cross-Platform (2)
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCClaw — OpenClaw for Windows | Native Skills for Your AI Agent</title>
-    <meta name="description" content="The missing Windows experience for OpenClaw. 16 skills (14 Windows-native + 2 cross-platform), one-command installer, and Moltbook integration. Get your AI agent running on Windows in 2 minutes.">
+    <meta name="description" content="The missing Windows experience for OpenClaw. 17 skills (14 Windows-native + 2 cross-platform + OpenViking memory), one-command installer, and Moltbook integration. Get your AI agent running on Windows in 2 minutes.">
 
     <!-- Open Graph -->
     <meta property="og:title" content="PCClaw — OpenClaw for Windows">
@@ -163,7 +163,7 @@
 
         <div class="max-w-4xl mx-auto px-4 py-16 text-center">
             <div class="inline-block bg-lobster/20 text-lobster-100 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-lobster/30">
-                v2.0.0 — 16 Skills, 5+ Providers
+                v3.0.0 — 17 Skills + OpenViking Memory, 5+ Providers
             </div>
 
             <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
@@ -277,11 +277,72 @@
                     <span class="text-gray-400">—</span>
                     <span class="text-wave font-medium">win-scheduler</span>
                 </div>
-                <div class="ecosystem-row px-6 py-3 text-sm">
+                <div class="ecosystem-row px-6 py-3 border-b border-gray-100 bg-sand/50 text-sm">
                     <span class="font-medium text-ocean">Messages</span>
                     <span class="text-gray-500">imsg</span>
                     <span class="text-gray-400">— (coming soon)</span>
                 </div>
+                <div class="ecosystem-row px-6 py-3 text-sm">
+                    <span class="font-medium text-ocean">Memory</span>
+                    <span class="text-gray-400">—</span>
+                    <span class="text-wave font-medium">win-memory <span class="text-xs bg-lobster/10 text-lobster px-1.5 py-0.5 rounded ml-1">new</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OpenViking Memory Section -->
+    <section class="py-16 px-4 bg-gradient-to-br from-ocean to-wave text-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-white/20 px-3 py-1 rounded-full text-xs font-medium mb-4 border border-white/30">
+                    New in v3.0.0
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Persistent Agent Memory</h2>
+                <p class="text-foam/90 max-w-2xl mx-auto">
+                    Your agent finally remembers. PCClaw now integrates <a href="https://github.com/volcengine/OpenViking" target="_blank" class="underline hover:text-white">OpenViking</a> — an open-source context database built for AI agents, with tiered memory loading that cuts token usage by 91%.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white/10 rounded-xl p-6 border border-white/20">
+                    <div class="text-2xl mb-3">🗂️</div>
+                    <h3 class="font-semibold mb-2">Filesystem Paradigm</h3>
+                    <p class="text-foam/80 text-sm">Memories organized under <code class="bg-white/20 px-1 rounded">viking://</code> URIs — browse, search, and manage like a filesystem. No more black-box embeddings.</p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-6 border border-white/20">
+                    <div class="text-2xl mb-3">⚡</div>
+                    <h3 class="font-semibold mb-2">L0 / L1 / L2 Loading</h3>
+                    <p class="text-foam/80 text-sm">Abstracts load first (~100 tokens), overviews on demand (~2k), full content only when needed. <strong class="text-white">91% token reduction</strong> vs flat RAG.</p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-6 border border-white/20">
+                    <div class="text-2xl mb-3">🔄</div>
+                    <h3 class="font-semibold mb-2">Self-Evolving</h3>
+                    <p class="text-foam/80 text-sm">Sessions automatically extract long-term memories. Your agent gets smarter with use — preferences, work patterns, and task experience persist.</p>
+                </div>
+            </div>
+
+            <div class="bg-white/10 rounded-xl p-6 border border-white/20 max-w-3xl mx-auto">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="text-lg">📊</div>
+                    <h3 class="font-semibold">OpenClaw + OpenViking Benchmark</h3>
+                    <span class="text-xs bg-white/20 px-2 py-0.5 rounded ml-auto">LoCoMo10 dataset, 1,540 cases</span>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-center mb-3">
+                    <div class="bg-white/10 rounded-lg p-3">
+                        <div class="text-2xl font-bold text-lobster">35.6%</div>
+                        <div class="text-xs text-foam/70 mt-1">OpenClaw alone</div>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-3">
+                        <div class="text-2xl font-bold text-foam">44.5%</div>
+                        <div class="text-xs text-foam/70 mt-1">+ LanceDB RAG</div>
+                    </div>
+                    <div class="bg-white/20 rounded-lg p-3 border border-white/30">
+                        <div class="text-2xl font-bold text-white">52.1%</div>
+                        <div class="text-xs text-foam/90 mt-1">+ OpenViking ✓</div>
+                    </div>
+                </div>
+                <div class="text-center text-foam/70 text-xs">Token cost with OpenViking: <strong class="text-white">91% lower</strong> than LanceDB</div>
             </div>
         </div>
     </section>
@@ -289,7 +350,7 @@
     <!-- Skills Showcase -->
     <section class="py-16 px-4 bg-white">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-ocean text-center mb-3">16 Skills, Ready to Go</h2>
+            <h2 class="text-3xl font-bold text-ocean text-center mb-3">17 Skills, Ready to Go</h2>
             <p class="text-gray-500 text-center mb-12">Install once, use everywhere. Zero dependencies on most skills.</p>
 
             <div class="grid md:grid-cols-3 gap-4">
@@ -404,6 +465,15 @@
                         <span class="font-semibold text-ocean text-sm">win-scheduler</span>
                     </div>
                     <p class="text-gray-600 text-xs">Create scheduled tasks — reminders, daily routines, startup automation.</p>
+                </div>
+
+                <div class="skill-card bg-lobster/5 rounded-xl p-5 border border-lobster/20">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-lg">🧬</span>
+                        <span class="font-semibold text-ocean text-sm">win-memory</span>
+                        <span class="text-xs bg-lobster/10 text-lobster px-1.5 py-0.5 rounded">new</span>
+                    </div>
+                    <p class="text-gray-600 text-xs">Persistent agent memory via OpenViking. L0/L1/L2 tiered context, semantic search, 91% fewer tokens vs RAG.</p>
                 </div>
 
                 <!-- Cross-Platform -->
@@ -639,6 +709,13 @@
                 </div>
 
                 <div class="bg-sand rounded-lg p-6">
+                    <h3 class="font-semibold text-ocean mb-2">What is OpenViking and how does win-memory use it?</h3>
+                    <p class="text-gray-600 text-sm">
+                        <a href="https://github.com/volcengine/OpenViking" target="_blank" class="text-wave hover:underline">OpenViking</a> is an open-source context database from Volcengine, designed for AI agents. The <code class="bg-white px-1.5 py-0.5 rounded text-xs">win-memory</code> skill integrates it as your agent's persistent memory — storing preferences, work context, and learned patterns under a <code class="bg-white px-1.5 py-0.5 rounded text-xs">viking://</code> filesystem with L0/L1/L2 tiered loading. Requires Python 3.10+ and optionally Ollama for local embeddings (zero API cost).
+                    </p>
+                </div>
+
+                <div class="bg-sand rounded-lg p-6">
                     <h3 class="font-semibold text-ocean mb-2">How do I add more skills?</h3>
                     <p class="text-gray-600 text-sm">
                         Copy any skill folder to <code class="bg-white px-1.5 py-0.5 rounded text-xs">~/.openclaw/skills/</code> and restart OpenClaw. Check our
@@ -692,6 +769,7 @@
                 <a href="https://irisgo.ai" target="_blank" class="hover:text-white transition">IrisGo</a>
                 <a href="https://openclaw.ai" target="_blank" class="hover:text-white transition">OpenClaw</a>
                 <a href="https://moltbook.com" target="_blank" class="hover:text-white transition">Moltbook</a>
+                <a href="https://github.com/volcengine/OpenViking" target="_blank" class="hover:text-white transition">OpenViking</a>
             </div>
         </div>
         <div class="max-w-4xl mx-auto mt-6 pt-6 border-t border-gray-800 text-center text-xs text-gray-500">
