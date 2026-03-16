@@ -50,7 +50,7 @@ PCClaw fills the gap:
 ## Quick Start
 
 ```powershell
-irm pcclaw.ai/i | iex
+irm pcclaw.ai/i.ps1 | iex
 ```
 
 That's it. The installer handles Node.js, Git, OpenClaw, skills, and [Moltbook](https://moltbook.com) registration.
