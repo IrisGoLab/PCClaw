@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start — PCClaw | OpenClaw for Windows</title>
+    <meta name="description" content="Step-by-step guide to set up your AI agent on Windows with PCClaw. From install to your first automated workflow in 10 minutes.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="PCClaw Quick Start — Your AI Agent on Windows">
+    <meta property="og:description" content="Step-by-step guide: install, configure, and run your first AI agent workflow on Windows.">
+    <meta property="og:image" content="https://pcclaw.ai/pcclaw-logo.png">
+    <meta property="og:url" content="https://pcclaw.ai/quickstart">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PCClaw Quick Start — Your AI Agent on Windows">
+    <meta name="twitter:description" content="From zero to running AI agent on Windows in 10 minutes.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦞</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lobster: '#E63946',
+                        ocean: '#1D3557',
+                        sand: '#F1FAEE',
+                        wave: '#457B9D',
+                        foam: '#A8DADC',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        code, .mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-bg { background: linear-gradient(135deg, #1D3557 0%, #457B9D 50%, #1D3557 100%); }
+        .code-block {
+            background: #0d1117;
+            border-radius: 8px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .copy-btn {
+            position: absolute; top: 8px; right: 8px;
+            background: rgba(255,255,255,0.1); border: none; color: #fff;
+            padding: 4px 12px; border-radius: 4px; cursor: pointer;
+            font-size: 12px; transition: background 0.2s;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,0.2); }
+        .copy-btn.copied { background: #22c55e; }
+        .step-number {
+            width: 36px; height: 36px; background: #E63946; color: white;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-weight: 700; flex-shrink: 0;
+            font-size: 14px;
+        }
+        .step-card { border-left: 3px solid #E63946; }
+        .workflow-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .workflow-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(0,0,0,0.1); }
+        .toc-link { transition: color 0.15s; }
+        .toc-link:hover { color: #E63946; }
+        .file-tree { font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.8; }
+    </style>
+</head>
+<body class="bg-sand min-h-screen">
+
+    <!-- Nav -->
+    <header class="gradient-bg text-white">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="/" class="flex items-center gap-3 hover:opacity-90 transition">
+                    <span class="text-2xl">🦞</span>
+                    <span class="font-bold text-lg">PCClaw</span>
+                </a>
+                <span class="text-foam/40 text-sm">|</span>
+                <span class="text-foam/70 text-sm">Quick Start</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="/" class="text-foam/80 hover:text-white text-sm transition">Home</a>
+                <a href="https://github.com/IrisGoLab/PCClaw" target="_blank"
+                   class="hidden md:flex items-center gap-1.5 text-foam/80 hover:text-white text-sm transition">
+                    <svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://join.slack.com/t/irisgo-community/shared_invite/zt-3i3qm7sds-A4WIKXk4rQHgG1FUg1i0Og"
+                   target="_blank"
+                   class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg text-sm font-medium transition">
+                    Join Community
+                </a>
+            </div>
+        </nav>
+
+        <div class="max-w-4xl mx-auto px-4 py-12 text-center">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+                Quick Start Guide
+            </h1>
+            <p class="text-lg text-foam/90 max-w-2xl mx-auto">
+                From zero to a working AI agent on your Windows PC. Follow the steps below &mdash; the whole process takes about 10 minutes.
+            </p>
+        </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <section class="py-8 px-4 bg-white border-b border-gray-100">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">On this page</h2>
+            <div class="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                <a href="#step-1" class="toc-link text-ocean font-medium">1. Prerequisites</a>
+                <a href="#step-5" class="toc-link text-ocean font-medium">5. Agent Identity Files</a>
+                <a href="#step-2" class="toc-link text-ocean font-medium">2. Install PCClaw</a>
+                <a href="#step-6" class="toc-link text-ocean font-medium">6. Workflow Examples</a>
+                <a href="#step-3" class="toc-link text-ocean font-medium">3. Choose Your LLM</a>
+                <a href="#step-7" class="toc-link text-ocean font-medium">7. Security Checklist</a>
+                <a href="#step-4" class="toc-link text-ocean font-medium">4. Post-Install Setup</a>
+                <a href="#step-8" class="toc-link text-ocean font-medium">8. Troubleshooting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 1: Prerequisites -->
+    <section id="step-1" class="py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="step-number">1</div>
+                <h2 class="text-2xl font-bold text-ocean">Prerequisites</h2>
+            </div>
+
+            <div class="step-card bg-white rounded-r-xl p-6 shadow-sm mb-4">
+                <h3 class="font-semibold text-ocean mb-3">What you need</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-start gap-2">
+                        <span class="text-lobster font-bold mt-0.5">&#10003;</span>
+                        <span><strong>Windows 10 or 11</strong> with PowerShell 5.1+ (pre-installed)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-lobster font-bold mt-0.5">&#10003;</span>
+                        <span><strong>Internet connection</strong> for installation and LLM API calls</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-lobster font-bold mt-0.5">&#10003;</span>
+                        <span><strong>An LLM API key</strong> from any provider (Claude, GPT, Gemini, GLM) &mdash; OR a local LLM via Ollama</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="step-card bg-white rounded-r-xl p-6 shadow-sm">
+                <h3 class="font-semibold text-ocean mb-3">Optional but recommended</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-start gap-2">
+                        <span class="text-wave font-bold mt-0.5">+</span>
+                        <span><strong>Telegram or Slack account</strong> &mdash; for messaging your agent (Telegram is easiest to set up)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-wave font-bold mt-0.5">+</span>
+                        <span><strong>A Gmail account</strong> for your agent &mdash; keep it separate from your personal email</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-wave font-bold mt-0.5">+</span>
+                        <span><strong>GPU or NPU</strong> &mdash; accelerates win-whisper (speech-to-text) and win-ai-local (Ollama)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 2: Install -->
+    <section id="step-2" class="py-12 px-4 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="step-number">2</div>
+                <h2 class="text-2xl font-bold text-ocean">Install PCClaw</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">Open PowerShell and run:</p>
+
+            <div class="code-block p-5 mb-4">
+                <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                <code class="text-green-400 text-base">irm pcclaw.ai/i | iex</code>
+            </div>
+
+            <p class="text-gray-500 text-sm mb-6">The installer handles everything: Node.js, Git (via winget), OpenClaw, PCClaw skills, and Moltbook registration.</p>
+
+            <div class="bg-sand rounded-xl p-5 border border-gray-200">
+                <h3 class="font-semibold text-ocean text-sm mb-2">Script blocked?</h3>
+                <p class="text-gray-600 text-sm mb-3">If you see "running scripts is disabled", run this first:</p>
+                <div class="code-block p-3">
+                    <code class="text-green-400 text-xs">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 3: Choose LLM -->
+    <section id="step-3" class="py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="step-number">3</div>
+                <h2 class="text-2xl font-bold text-ocean">Choose Your LLM</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">The installer asks which provider to use. Here's how they compare:</p>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm bg-white rounded-xl shadow-sm overflow-hidden">
+                    <thead>
+                        <tr class="bg-ocean text-white text-left">
+                            <th class="px-4 py-3 font-semibold">Provider</th>
+                            <th class="px-4 py-3 font-semibold">Best for</th>
+                            <th class="px-4 py-3 font-semibold">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                        <tr class="border-b border-gray-100">
+                            <td class="px-4 py-3 font-medium">Anthropic (Claude)</td>
+                            <td class="px-4 py-3">Best overall agent performance</td>
+                            <td class="px-4 py-3">~$20/mo subscription or API</td>
+                        </tr>
+                        <tr class="border-b border-gray-100 bg-sand/30">
+                            <td class="px-4 py-3 font-medium">OpenAI (GPT / Codex)</td>
+                            <td class="px-4 py-3">Strong reasoning, large ecosystem</td>
+                            <td class="px-4 py-3">~$20/mo subscription or API</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="px-4 py-3 font-medium">Google Gemini</td>
+                            <td class="px-4 py-3">Large context window, Google integration</td>
+                            <td class="px-4 py-3">Free tier available</td>
+                        </tr>
+                        <tr class="border-b border-gray-100 bg-sand/30">
+                            <td class="px-4 py-3 font-medium">GLM (Zhipu AI)</td>
+                            <td class="px-4 py-3">Chinese language tasks, budget-friendly</td>
+                            <td class="px-4 py-3">Free tier available</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-medium">Local LLM (Ollama)</td>
+                            <td class="px-4 py-3">Privacy, offline use, zero API cost</td>
+                            <td class="px-4 py-3">Free (your hardware)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-6 bg-foam/20 rounded-xl p-5 border border-foam/40">
+                <p class="text-ocean text-sm font-medium mb-1">Power user tip</p>
+                <p class="text-gray-600 text-sm">Skip the interactive prompt with a one-liner:</p>
+                <div class="code-block p-3 mt-3">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code class="text-green-400 text-xs block">.\install.ps1 -ApiKey "your-key" -AgentName "jarvis" -Provider "anthropic"</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 4: Post-Install Setup -->
+    <section id="step-4" class="py-12 px-4 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="step-number">4</div>
+                <h2 class="text-2xl font-bold text-ocean">Post-Install Setup</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">After the installer finishes, OpenClaw launches an onboarding wizard. Key decisions:</p>
+
+            <div class="space-y-4">
+                <div class="step-card bg-sand rounded-r-xl p-5">
+                    <h3 class="font-semibold text-ocean text-sm mb-2">Connect a messaging channel</h3>
+                    <p class="text-gray-600 text-sm">Telegram is the easiest &mdash; create a bot via <a href="https://t.me/BotFather" target="_blank" class="text-wave font-medium hover:underline">@BotFather</a>, paste the token. Your agent becomes reachable via Telegram messages.</p>
+                </div>
+
+                <div class="step-card bg-sand rounded-r-xl p-5">
+                    <h3 class="font-semibold text-ocean text-sm mb-2">Enable web search</h3>
+                    <p class="text-gray-600 text-sm">Connect a search API (Brave, Exa, or Perplexity) so your agent can look things up. Brave Search has a generous free tier.</p>
+                </div>
+
+                <div class="step-card bg-sand rounded-r-xl p-5">
+                    <h3 class="font-semibold text-ocean text-sm mb-2">Install the <code class="bg-ocean/10 px-1.5 py-0.5 rounded text-ocean text-xs">gog</code> skill</h3>
+                    <p class="text-gray-600 text-sm">Gives your agent access to Gmail, Google Calendar, and Google Drive. Follow the OAuth setup when prompted.</p>
+                </div>
+
+                <div class="step-card bg-sand rounded-r-xl p-5">
+                    <h3 class="font-semibold text-ocean text-sm mb-2">Enable session memory hook</h3>
+                    <p class="text-gray-600 text-sm">This is the most important hook. It lets your agent remember past conversations and build up context over time. Enable it when asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 5: Agent Identity Files -->
+    <section id="step-5" class="py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="step-number">5</div>
+                <h2 class="text-2xl font-bold text-ocean">Agent Identity Files</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">Your agent's behavior is defined by markdown files in its workspace folder. These are the key files:</p>
+
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                <div class="file-tree text-gray-700">
+                    <div class="text-ocean font-semibold mb-2">%USERPROFILE%\.openclaw\</div>
+                    <div class="pl-4">
+                        <div><span class="text-lobster">AGENTS.md</span> &mdash; core instructions, what your agent does</div>
+                        <div><span class="text-lobster">SOUL.md</span> &mdash; persona, tone, communication boundaries</div>
+                        <div><span class="text-lobster">IDENTITY.md</span> &mdash; name, personality, emoji</div>
+                        <div><span class="text-lobster">TOOLS.md</span> &mdash; which tools to use and when</div>
+                        <div><span class="text-lobster">USER.md</span> &mdash; info about you (the operator)</div>
+                        <div class="text-gray-400 mt-2">config.json</div>
+                        <div class="text-gray-400">skills\ &mdash; PCClaw skills live here</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="font-semibold text-ocean text-sm mb-3">Example: AGENTS.md</h3>
+                    <div class="code-block p-4">
+                        <code class="text-green-400 text-xs block whitespace-pre">You are Jarvis, a personal AI assistant running on a Windows PC.
+
+Your responsibilities:
+- Monitor my calendar and send pre-meeting briefs via Telegram
+- Scan email every morning and flag urgent items
+- Take screenshots and OCR documents when asked
+- Manage my to-do list in Microsoft To Do
+
+You have access to PCClaw Windows skills:
+win-screenshot, win-ocr, win-clipboard, win-notify, ms-todo, win-scheduler</code>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="font-semibold text-ocean text-sm mb-3">Example: SOUL.md</h3>
+                    <div class="code-block p-4">
+                        <code class="text-green-400 text-xs block whitespace-pre">Tone: professional but friendly, concise
+Language: match the user's language (English or Chinese)
+
+Boundaries:
+- Never send emails or messages without my explicit approval
+- Never share my calendar details with others
+- Ask before installing any software via winget
+- Never execute PowerShell commands that delete files without confirmation</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 6: Workflow Examples -->
+    <section id="step-6" class="py-12 px-4 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="step-number">6</div>
+                <h2 class="text-2xl font-bold text-ocean">Workflow Examples</h2>
+            </div>
+
+            <p class="text-gray-600 mb-8">Tell your agent what to do in natural language. These examples use PCClaw's Windows skills:</p>
+
+            <div class="space-y-4">
+                <div class="workflow-card bg-sand rounded-xl p-6 border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-lg">📋</span>
+                        <h3 class="font-semibold text-ocean text-sm">Morning Briefing</h3>
+                    </div>
+                    <div class="code-block p-4">
+                        <code class="text-green-400 text-xs block whitespace-pre-wrap">"Every morning at 8 AM, check my Google Calendar for today's meetings. For each meeting starting in the next 2 hours, send me a Telegram brief with attendees, agenda, and any relevant emails from the past week. Use win-notify to pop a Windows notification when the brief is ready."</code>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">gog (calendar)</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-notify</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-scheduler</span>
+                    </div>
+                </div>
+
+                <div class="workflow-card bg-sand rounded-xl p-6 border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-lg">📸</span>
+                        <h3 class="font-semibold text-ocean text-sm">Screenshot + OCR Workflow</h3>
+                    </div>
+                    <div class="code-block p-4">
+                        <code class="text-green-400 text-xs block whitespace-pre-wrap">"When I say 'capture this', take a screenshot of the active window with win-screenshot. Run win-ocr on the image to extract text. Copy the extracted text to my clipboard with win-clipboard. Send me the text and the image on Telegram."</code>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-screenshot</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-ocr</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-clipboard</span>
+                    </div>
+                </div>
+
+                <div class="workflow-card bg-sand rounded-xl p-6 border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-lg">🎤</span>
+                        <h3 class="font-semibold text-ocean text-sm">Voice Notes (NPU Accelerated)</h3>
+                    </div>
+                    <div class="code-block p-4">
+                        <code class="text-green-400 text-xs block whitespace-pre-wrap">"When I send you a voice message, transcribe it with win-whisper. Summarize the key points, create a task in ms-todo for each action item, and read the summary back to me using win-tts."</code>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-whisper</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">ms-todo</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-tts</span>
+                    </div>
+                </div>
+
+                <div class="workflow-card bg-sand rounded-xl p-6 border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-lg">📁</span>
+                        <h3 class="font-semibold text-ocean text-sm">File Organization</h3>
+                    </div>
+                    <div class="code-block p-4">
+                        <code class="text-green-400 text-xs block whitespace-pre-wrap">"Every Friday at 5 PM, scan my Downloads folder with win-files. Categorize files by type (documents, images, installers, archives). Move them into subfolders. Send me a summary of what was organized and flag any files larger than 500 MB."</code>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-files</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-notify</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-scheduler</span>
+                    </div>
+                </div>
+
+                <div class="workflow-card bg-sand rounded-xl p-6 border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-lg">💻</span>
+                        <h3 class="font-semibold text-ocean text-sm">System Health Monitor</h3>
+                    </div>
+                    <div class="code-block p-4">
+                        <code class="text-green-400 text-xs block whitespace-pre-wrap">"Check system health every 30 minutes with win-sysinfo. If CPU usage stays above 90% for 5 minutes, or RAM exceeds 85%, or battery drops below 20%, send me a Telegram alert with the top 5 processes by resource usage."</code>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-sysinfo</span>
+                        <span class="text-xs bg-wave/10 text-wave px-2 py-1 rounded">win-notify</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 7: Security -->
+    <section id="step-7" class="py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="step-number">7</div>
+                <h2 class="text-2xl font-bold text-ocean">Security Checklist</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">Your agent has real access to your PC. Follow these rules:</p>
+
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="divide-y divide-gray-100">
+                    <div class="p-5 flex items-start gap-3">
+                        <span class="text-lobster text-lg mt-0.5">!</span>
+                        <div>
+                            <h3 class="font-semibold text-ocean text-sm">Use a dedicated machine or user account</h3>
+                            <p class="text-gray-500 text-xs mt-1">Don't run the agent on your primary work laptop with sensitive data. A separate Windows user account or a dedicated mini PC is ideal.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 flex items-start gap-3">
+                        <span class="text-lobster text-lg mt-0.5">!</span>
+                        <div>
+                            <h3 class="font-semibold text-ocean text-sm">Define boundaries in SOUL.md</h3>
+                            <p class="text-gray-500 text-xs mt-1">Explicitly list what the agent must never do: delete files, send emails without approval, access certain folders, install software unsupervised.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 flex items-start gap-3">
+                        <span class="text-lobster text-lg mt-0.5">!</span>
+                        <div>
+                            <h3 class="font-semibold text-ocean text-sm">Start with read-only API tokens</h3>
+                            <p class="text-gray-500 text-xs mt-1">For Gmail, Calendar, and other integrations, use read-only scopes first. Add write access later once you trust the agent's behavior.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 flex items-start gap-3">
+                        <span class="text-lobster text-lg mt-0.5">!</span>
+                        <div>
+                            <h3 class="font-semibold text-ocean text-sm">Don't expose to public channels</h3>
+                            <p class="text-gray-500 text-xs mt-1">Only let your agent respond in private conversations. Public channels expose it to prompt injection from other users.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 flex items-start gap-3">
+                        <span class="text-lobster text-lg mt-0.5">!</span>
+                        <div>
+                            <h3 class="font-semibold text-ocean text-sm">Keep your API key local</h3>
+                            <p class="text-gray-500 text-xs mt-1">PCClaw stores your key in local config only. Never paste it in public channels, shared docs, or group chats.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 flex items-start gap-3">
+                        <span class="text-lobster text-lg mt-0.5">!</span>
+                        <div>
+                            <h3 class="font-semibold text-ocean text-sm">Run security audits</h3>
+                            <p class="text-gray-500 text-xs mt-1">Periodically run <code class="bg-sand px-1.5 py-0.5 rounded text-xs">openclaw security audit</code> to check for known vulnerabilities in installed skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 8: Troubleshooting -->
+    <section id="step-8" class="py-12 px-4 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="step-number">8</div>
+                <h2 class="text-2xl font-bold text-ocean">Troubleshooting</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="bg-sand rounded-xl border border-gray-200 overflow-hidden group">
+                    <summary class="p-5 cursor-pointer text-sm font-semibold text-ocean hover:bg-sand/80 transition">
+                        "Node.js not found" after installation
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 text-sm">
+                        Close and reopen PowerShell so the PATH update takes effect, then run the installer again.
+                    </div>
+                </details>
+
+                <details class="bg-sand rounded-xl border border-gray-200 overflow-hidden">
+                    <summary class="p-5 cursor-pointer text-sm font-semibold text-ocean hover:bg-sand/80 transition">
+                        "OpenClaw not found" after installation
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 text-sm">
+                        Same fix &mdash; restart PowerShell. If it persists, run <code class="bg-white px-1.5 py-0.5 rounded text-xs">npm install -g openclaw@latest</code> manually.
+                    </div>
+                </details>
+
+                <details class="bg-sand rounded-xl border border-gray-200 overflow-hidden">
+                    <summary class="p-5 cursor-pointer text-sm font-semibold text-ocean hover:bg-sand/80 transition">
+                        win-whisper is slow or not working
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 text-sm">
+                        First run downloads the Whisper model (~1.5 GB for medium). Be patient. For faster inference, make sure your GPU/NPU drivers are up to date &mdash; whisper.cpp uses hardware acceleration automatically when available.
+                    </div>
+                </details>
+
+                <details class="bg-sand rounded-xl border border-gray-200 overflow-hidden">
+                    <summary class="p-5 cursor-pointer text-sm font-semibold text-ocean hover:bg-sand/80 transition">
+                        Skills not loading
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 text-sm">
+                        Check that skills are in the right folder:
+                        <div class="code-block p-3 mt-2">
+                            <code class="text-green-400 text-xs">ls $env:USERPROFILE\.openclaw\skills\</code>
+                        </div>
+                        <p class="mt-2">Each skill should have a <code class="bg-white px-1 py-0.5 rounded text-xs">SKILL.md</code> file. If missing, reinstall:</p>
+                        <div class="code-block p-3 mt-2">
+                            <code class="text-green-400 text-xs">Copy-Item -Recurse .\skills\* "$env:USERPROFILE\.openclaw\skills\"</code>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="bg-sand rounded-xl border border-gray-200 overflow-hidden">
+                    <summary class="p-5 cursor-pointer text-sm font-semibold text-ocean hover:bg-sand/80 transition">
+                        Agent acting weird or ignoring instructions
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 text-sm">
+                        Check your identity files: <code class="bg-white px-1 py-0.5 rounded text-xs">AGENTS.md</code>, <code class="bg-white px-1 py-0.5 rounded text-xs">SOUL.md</code>, and <code class="bg-white px-1 py-0.5 rounded text-xs">TOOLS.md</code> in <code class="bg-white px-1 py-0.5 rounded text-xs">%USERPROFILE%\.openclaw\</code>. These files define behavior. If corrupted, delete them and OpenClaw will regenerate defaults on next launch.
+                    </div>
+                </details>
+
+                <details class="bg-sand rounded-xl border border-gray-200 overflow-hidden">
+                    <summary class="p-5 cursor-pointer text-sm font-semibold text-ocean hover:bg-sand/80 transition">
+                        How to update PCClaw
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 text-sm">
+                        <div class="code-block p-3">
+                            <code class="text-green-400 text-xs block">openclaw update</code>
+                        </div>
+                        <p class="mt-2">This updates the OpenClaw core. To update PCClaw skills specifically, pull the latest from GitHub and copy skills to your folder.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 px-4 bg-foam/30">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-ocean mb-4">Ready to start?</h2>
+            <p class="text-gray-600 mb-8">Open PowerShell and run:</p>
+            <div class="code-block p-5 max-w-md mx-auto mb-6">
+                <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                <code class="text-green-400 text-lg">irm pcclaw.ai/i | iex</code>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://github.com/IrisGoLab/PCClaw" target="_blank"
+                   class="bg-ocean text-white px-6 py-3 rounded-lg font-medium hover:bg-ocean/90 transition text-sm">
+                    View on GitHub
+                </a>
+                <a href="https://join.slack.com/t/irisgo-community/shared_invite/zt-3i3qm7sds-A4WIKXk4rQHgG1FUg1i0Og" target="_blank"
+                   class="bg-white text-ocean px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition text-sm border border-gray-200">
+                    Join Community Slack
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 px-4">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🦞</span>
+                <span class="font-bold">PCClaw</span>
+                <span class="text-foam/50 text-sm">v3.0.0</span>
+            </div>
+            <div class="flex items-center gap-6 text-sm text-foam/70">
+                <a href="/" class="hover:text-white transition">Home</a>
+                <a href="https://github.com/IrisGoLab/PCClaw" target="_blank" class="hover:text-white transition">GitHub</a>
+                <a href="https://irisgo.ai" target="_blank" class="hover:text-white transition">IrisGo.AI</a>
+            </div>
+            <div class="text-foam/50 text-xs">
+                MIT License &middot; Built by <a href="https://irisgo.ai" target="_blank" class="text-foam/70 hover:text-white">IrisGo.AI</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyCommand(btn) {
+            const code = btn.parentElement.querySelector('code');
+            const allCode = btn.parentElement.querySelectorAll('code');
+            let text = '';
+            allCode.forEach(c => { text += c.textContent + '\n'; });
+            text = text.trim();
+
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
